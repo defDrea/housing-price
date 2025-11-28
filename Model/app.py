@@ -4,8 +4,8 @@ import numpy as np
 import pickle
 
 # --- Load trained model ---
-model = pickle.load(open("ridge_regression_model.pkl", "rb"))
-scaler = pickle.load(open('scaler.pkl', 'rb'))
+model = pickle.load(open("Model/ridge_regression_model.pkl", "rb"))
+scaler = pickle.load(open('Model/scaler.pkl', 'rb'))
 
 st.title("Group 1-House Price Prediction Dashboard")
 
@@ -38,4 +38,5 @@ if st.button("Predict"):
     X_new_scaled = scaler.transform(X_new)
 
     prediction = model.predict(X_new_scaled)
+
     st.success(f"Predicted House Price: ${prediction[0]:.2f}")
